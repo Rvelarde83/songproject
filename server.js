@@ -13,6 +13,7 @@ require("./config/database");
 
 //Routers
 const songsRouter = require("./routes/songs");
+const usersRouter = require("./routes/users");
 
 
 //Middleware
@@ -27,13 +28,13 @@ app.use(morgan('dev'))
 //Model
 
 app.use("/songs/", songsRouter);
-// app.get("/", (req, res) => {
-//   res.send("Hello Blackeye Coffee!");
-// });
+
+app.use("/users/", usersRouter);
+
 
 
 
 //Listen
 
 const PORT = process.env.PORT|| 3003
-app.listen(PORT, () => console.log(`You're on port ${PORT}`));
+app.listen(PORT, () => console.log(`You're on song_port ${PORT}`));
