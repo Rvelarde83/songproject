@@ -7,6 +7,7 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
+import cookieParser from "cookie-parser";
 
 // DB Config
 require("./config/database");
@@ -22,6 +23,9 @@ app.use(express.urlencoded({extended: true}))
 app.use("/static", express.static("static")) 
 app.use(cors());
 app.use(morgan('dev'))
+app.use(cookieParser()) //parse cookies
+
+
 
 
 
